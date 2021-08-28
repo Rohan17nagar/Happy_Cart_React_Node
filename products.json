@@ -1,0 +1,44 @@
+[
+    {
+        "productId": "1000",
+        "name": "Watch",
+        "Brand": "MI",
+        "rating": 4,
+        "price": 500
+    },
+    {
+        "productId": "1001",
+        "name": "Shoe",
+        "Brand": "Being Human",
+        "rating": 5,
+        "price": 1000
+    },
+    {
+        "productId": "1002",
+        "name": "Jeans",
+        "Brand": "Being Human",
+        "rating": 2,
+        "price": 1500
+    },
+    {
+        "productId": "1003",
+        "name": "T Shirt",
+        "Brand": "Levis",
+        "rating": 3,
+        "price": 1000
+    },
+    {
+        "productId": "1004",
+        "name": "Shirt",
+        "Brand": "Arrow",
+        "rating": 4,
+        "price": 1600
+    },
+    {
+        "productId": "1005",
+        "name": "Mobile",
+        "Brand": "Samsung",
+        "rating": 5,
+        "price": 1400
+    }
+]
