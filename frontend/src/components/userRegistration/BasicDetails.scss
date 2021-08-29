@@ -1,0 +1,21 @@
+// :root {
+//     --g-font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+//     "Lucida Sans", Arial, sans-serif
+//     --g-font-size: 0.8rem;
+//     --g-text-color:#0a121f;
+//     --g-primary-title-size: 2rem;
+//     --g-color-primary: #88498f;
+//     --g-color-secondary: #779fa1;
+//     --g-color-warning: #e28413;
+//     --g-color-danger: #ff6542;
+// }
+$base-text-color: #0a121f;
+$base-font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+
+.bd-container {
+  .bd-heading {
+    color: $base-text-color;
+    font-family: $base-font-family;
+  }
+}
