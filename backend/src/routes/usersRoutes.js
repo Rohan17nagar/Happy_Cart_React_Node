@@ -19,7 +19,7 @@ router.get("/GetUserDetails", (req, res) => {
 });
 
 router.post("/PostUserDetails", (req, res) => {
-  console.log(req.body);
+  console.log("RQ BODY", req.body);
   const user = new User(req.body);
   user
     .save()
@@ -27,7 +27,7 @@ router.post("/PostUserDetails", (req, res) => {
       res.status(201).send(user);
     })
     .catch((err) => {
-      res.status(400).send(err);
+      res.status(500).send(err);
     });
 });
 
