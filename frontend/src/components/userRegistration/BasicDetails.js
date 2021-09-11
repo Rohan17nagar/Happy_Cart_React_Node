@@ -1,74 +1,85 @@
 import React, { useEffect, useState } from "react";
+import TextField from "@material-ui/core/TextField";
 import "./BasicDetails.scss";
+import { Button, Grid } from "@material-ui/core";
 
 const BasicDetails = () => {
-  //useStates definition
   const [basicDetails, setBasicDetails] = useState({});
 
-  //useEffects calls
-  useEffect(() => {
-    let userDetails = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      mobile: "",
-    };
-    setBasicDetails(userDetails);
-  }, []);
-
-  // Function Definitions
   const handleTextFieldChange = (e) => {
-    setBasicDetails({});
+    setBasicDetails({
+      ...basicDetails,
+      [e.target.id]: e.target.value,
+    });
   };
 
   return (
-    <div className="bd-container">
-      <h3 className="bd-heading">Enter Basic Details :</h3>
+    <Grid className="bd-container">
+      <Grid className="bd-grid">
+        <h3 className="bd-heading">ENTER BASIC DETAILS</h3>
+        <TextField
+          className="textField"
+          id="firstName"
+          label="First Name"
+          variant="outlined"
+          onChange={(e) => handleTextFieldChange(e)}
+          value={basicDetails.firstName}
+        />
 
-      <label>First Name* :</label>
-      <input
-        type="text"
-        onChange={(e) => handleTextFieldChange(e)}
-        value={basicDetails.username}
-      />
+        <TextField
+          className="textField"
+          id="lastName"
+          label="Last Name"
+          variant="outlined"
+          onChange={(e) => handleTextFieldChange(e)}
+          value={basicDetails.lastName}
+        />
 
-      <label>Last Name* :</label>
-      <input
-        type="text"
-        onChange={(e) => handleTextFieldChange(e)}
-        value={basicDetails.username}
-      />
+        <TextField
+          className="textField"
+          id="username"
+          label="Email"
+          variant="outlined"
+          onChange={(e) => handleTextFieldChange(e)}
+          value={basicDetails.username}
+        />
 
-      <label>Email* :</label>
-      <input
-        type="text"
-        onChange={(e) => handleTextFieldChange(e)}
-        value={basicDetails.username}
-      />
+        <TextField
+          className="textField"
+          id="password"
+          label="Password"
+          variant="outlined"
+          onChange={(e) => handleTextFieldChange(e)}
+          value={basicDetails.password}
+        />
 
-      <label>Password* :</label>
-      <input
-        type="text"
-        onChange={(e) => handleTextFieldChange(e)}
-        value={basicDetails.username}
-      />
+        <TextField
+          className="textField"
+          id="confirmPassword"
+          label="Confirm Password"
+          variant="outlined"
+          onChange={(e) => handleTextFieldChange(e)}
+          value={basicDetails.confirmPassword}
+        />
 
-      <label>Confirm Password* :</label>
-      <input
-        type="text"
-        onChange={(e) => handleTextFieldChange(e)}
-        value={basicDetails.username}
-      />
-
-      <label>Mobile No.* :</label>
-      <input
-        type="text"
-        onChange={(e) => handleTextFieldChange(e)}
-        value={basicDetails.username}
-      />
-    </div>
+        <TextField
+          className="textField"
+          id="mobile"
+          label="Mobile No."
+          variant="outlined"
+          onChange={(e) => handleTextFieldChange(e)}
+          value={basicDetails.mobile}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          className="submit-btn"
+          type="submit"
+        >
+          Register
+        </Button>
+      </Grid>
+    </Grid>
   );
 };
 export default BasicDetails;

@@ -10,12 +10,37 @@
 //     --g-color-danger: #ff6542;
 // }
 $base-text-color: #0a121f;
+$white-color: #fff;
 $base-font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
   "Lucida Sans", Arial, sans-serif;
 
 .bd-container {
-  .bd-heading {
-    color: $base-text-color;
-    font-family: $base-font-family;
+  background-image: -webkit-linear-gradient(top left, #a802e0, #f7676a);
+  height: 500px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .bd-grid {
+    background-color: white;
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
+    .bd-heading {
+      text-align: center;
+      color: #000080;
+      font-size: 20px;
+    }
+    .textField {
+      width: 80%;
+      margin: 11px 50px;
+    }
+    .submit-btn {
+      margin: 18px 50px;
+      width: 80%;
+    }
   }
 }
