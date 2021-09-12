@@ -16,11 +16,11 @@ const Home = (props) => {
   };
   return (
     <div>
-      {/* <button onClick={() => handleClick()}>click to me call GET API</button>
+      <button onClick={() => handleClick()}>click to me call GET API</button>
       <button onClick={() => handleClickp()}>click to me call POST API</button>
       {console.log("hello", props.productsDetails)}
       {console.log("hello", props.usersDetails)}
-       */}
+
       <Link to="/user-registration">Register</Link>
     </div>
   );

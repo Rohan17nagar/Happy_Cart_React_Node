@@ -18,4 +18,19 @@ router.get("/GetProductsDetails", (req, res) => {
     });
 });
 
+router.post("/PostPinProducts", (req, res) => {
+  console.log("RQ BODY", req.body);
+  const productName = new User(req.body);
+  Product.save()
+    .then(() => {
+      res.status(200);
+
+      console.log("response data..");
+      res.send(productName);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+});
+
 module.exports = router;

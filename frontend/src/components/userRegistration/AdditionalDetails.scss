@@ -3,7 +3,7 @@ $white-color: #fff;
 $base-font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
   "Lucida Sans", Arial, sans-serif;
 
-.bd-container {
+.ad-container {
   background-image: -webkit-linear-gradient(top left, #a802e0, #f7676a);
   height: 500px;
   height: 100vh;
@@ -13,12 +13,12 @@ $base-font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  .bd-grid {
+  .ad-grid {
     background-color: white;
     width: 500px;
     margin: 0 auto;
     border-radius: 8px;
-    .bd-heading {
+    .ad-heading {
       text-align: center;
       color: #000080;
       font-size: 20px;
@@ -27,12 +27,9 @@ $base-font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       width: 80%;
       margin: 11px 50px;
     }
-    .bd-buttons {
-      display: flex;
-      .submit-btn {
-        margin: 18px 50px;
-        width: 80%;
-      }
+    .submit-btn {
+      margin: 18px 50px;
+      width: 80%;
     }
   }
 }

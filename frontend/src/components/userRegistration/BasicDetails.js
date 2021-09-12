@@ -2,18 +2,52 @@ import React, { useEffect, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import "./BasicDetails.scss";
 import { Button, Grid } from "@material-ui/core";
+import Loader from "../../common/Loader/Loader";
+import { connect } from "react-redux";
+import { fnPostUsersDetails } from "../../redux/actions/ProductsAction";
 
-const BasicDetails = () => {
+const BasicDetails = (props) => {
   const [basicDetails, setBasicDetails] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [isNextDisabled, setIsNextDisabled] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 200);
+    setBasicDetails({
+      firstName: "",
+      lastName: "",
+      username: "",
+      password: "",
+      confirmPassword: "",
+      mobile: "",
+    });
+  }, []);
+
+  useEffect(() => {
+    let anyFieldEmpty = Object.values(basicDetails).includes("");
+    if (Object.keys(basicDetails).length >= 0 && !anyFieldEmpty) {
+      setIsNextDisabled(false);
+    } else {
+      setIsNextDisabled(true);
+    }
+  }, [basicDetails]);
 
   const handleTextFieldChange = (e) => {
     setBasicDetails({
       ...basicDetails,
-      [e.target.id]: e.target.value,
+      [e.target.id]: e.target.value.trimStart(),
     });
   };
 
-  return (
+  const handleRegisterClick = () => {
+    props.fnPostUsersDetails(basicDetails);
+  };
+
+  return isLoading ? (
+    <Loader />
+  ) : (
     <Grid className="bd-container">
       <Grid className="bd-grid">
         <h3 className="bd-heading">ENTER BASIC DETAILS</h3>
@@ -24,6 +58,7 @@ const BasicDetails = () => {
           variant="outlined"
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.firstName}
+          required
         />
 
         <TextField
@@ -33,6 +68,7 @@ const BasicDetails = () => {
           variant="outlined"
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.lastName}
+          required
         />
 
         <TextField
@@ -42,6 +78,7 @@ const BasicDetails = () => {
           variant="outlined"
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.username}
+          required
         />
 
         <TextField
@@ -51,6 +88,7 @@ const BasicDetails = () => {
           variant="outlined"
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.password}
+          required
         />
 
         <TextField
@@ -60,6 +98,7 @@ const BasicDetails = () => {
           variant="outlined"
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.confirmPassword}
+          required
         />
 
         <TextField
@@ -69,17 +108,46 @@ const BasicDetails = () => {
           variant="outlined"
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.mobile}
+          required
         />
-        <Button
-          variant="contained"
-          color="primary"
-          className="submit-btn"
-          type="submit"
-        >
-          Register
-        </Button>
+        <Grid className="bd-buttons">
+          <Button
+            variant="contained"
+            color="primary"
+            className="submit-btn"
+            type="button"
+            disabled={isNextDisabled}
+            onClick={() => handleRegisterClick()}
+          >
+            Register
+          </Button>
+
+          <Button
+            variant="contained"
+            color="primary"
+            className="submit-btn"
+            type="button"
+            disabled={isNextDisabled}
+          >
+            Next
+          </Button>
+        </Grid>
       </Grid>
     </Grid>
   );
 };
-export default BasicDetails;
+
+const mapStateToProps = (state) => {
+  return {
+    usersDetails: state.ProductsReducer.usersDetails,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fnPostUsersDetails: (userDetails) =>
+      dispatch(fnPostUsersDetails(userDetails)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BasicDetails);

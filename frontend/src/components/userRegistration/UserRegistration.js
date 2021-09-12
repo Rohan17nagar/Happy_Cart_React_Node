@@ -11,17 +11,19 @@ const UserRegistration = () => {
 
   return (
     <div className="ur-container">
-      <div
-        className="ur-basic-details"
-        onClick={() => handleSelectBar("Basic Details")}
-      >
-        Basic Details
-      </div>
-      <div
-        onClick={() => handleSelectBar("Additional Details")}
-        className="ur-additional-details"
-      >
-        Additional Details
+      <div className="ur-b-a-details">
+        <div
+          className="ur-basic-details"
+          onClick={() => handleSelectBar("Basic Details")}
+        >
+          BASIC DETAILS
+        </div>
+        <div
+          onClick={() => handleSelectBar("Additional Details")}
+          className="ur-additional-details"
+        >
+          ADDITIONAL DETAILS
+        </div>
       </div>
       {selectedBar === "Basic Details" ? (
         <BasicDetails />

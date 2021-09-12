@@ -28,6 +28,15 @@ export const fnGetProductsDetails = () => {
 
 //POST USER'S DATA API CALL --
 export const fnPostUsersDetails = (postUsersDetails) => {
+  // let data = {
+  //   firstName: "Rohan",
+  //   lastName: "Nagar",
+  //   username: "rohan@gmail.com",
+  //   password: "123456789",
+  //   confirmPassword: "123456789",
+  //   mobile: "123456789",
+  // };
+
   return (dispatch) => {
     postApiCall(POST_USERS_DETAILS_API, postUsersDetails)
       .then((res) => {
