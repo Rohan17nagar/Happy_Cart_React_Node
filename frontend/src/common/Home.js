@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -6,22 +6,11 @@ import {
   fnPostUsersDetails,
 } from "../redux/actions/ProductsAction";
 
-const Home = (props) => {
-  const handleClick = () => {
-    props.fnGetProductsDetails();
-  };
-
-  const handleClickp = () => {
-    props.fnPostUsersDetails();
-  };
+const Home = () => {
   return (
     <div>
-      <button onClick={() => handleClick()}>click to me call GET API</button>
-      <button onClick={() => handleClickp()}>click to me call POST API</button>
-      {console.log("hello", props.productsDetails)}
-      {console.log("hello", props.usersDetails)}
-
       <Link to="/user-registration">Register</Link>
+      <Link to="/user-login">Login</Link>
     </div>
   );
 };

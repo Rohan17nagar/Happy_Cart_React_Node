@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import "./BasicDetails.scss";
 import { Button, Grid } from "@material-ui/core";
@@ -10,7 +11,7 @@ const BasicDetails = (props) => {
   const [basicDetails, setBasicDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isNextDisabled, setIsNextDisabled] = useState(true);
-
+  const history = useHistory();
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -43,6 +44,11 @@ const BasicDetails = (props) => {
 
   const handleRegisterClick = () => {
     props.fnPostUsersDetails(basicDetails);
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      history.push("/");
+    }, 2000);
   };
 
   return isLoading ? (
@@ -59,6 +65,7 @@ const BasicDetails = (props) => {
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.firstName}
           required
+          autoComplete="off"
         />
 
         <TextField
@@ -69,6 +76,7 @@ const BasicDetails = (props) => {
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.lastName}
           required
+          autoComplete="off"
         />
 
         <TextField
@@ -79,6 +87,7 @@ const BasicDetails = (props) => {
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.username}
           required
+          autoComplete="off"
         />
 
         <TextField
@@ -88,7 +97,9 @@ const BasicDetails = (props) => {
           variant="outlined"
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.password}
+          type="password"
           required
+          autoComplete="off"
         />
 
         <TextField
@@ -98,7 +109,9 @@ const BasicDetails = (props) => {
           variant="outlined"
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.confirmPassword}
+          type="password"
           required
+          autoComplete="off"
         />
 
         <TextField
@@ -109,6 +122,7 @@ const BasicDetails = (props) => {
           onChange={(e) => handleTextFieldChange(e)}
           value={basicDetails.mobile}
           required
+          autoComplete="off"
         />
         <Grid className="bd-buttons">
           <Button

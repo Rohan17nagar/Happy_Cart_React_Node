@@ -1,0 +1,35 @@
+$base-text-color: #0a121f;
+$white-color: #fff;
+$base-font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+
+.login-container {
+  background-image: -webkit-linear-gradient(top left, #a802e0, #f7676a);
+  height: 31.25rem;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .login-grid {
+    background-color: white;
+    width: 31.25rem;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    .login-heading {
+      text-align: center;
+      color: #000080;
+      font-size: 1.25rem;
+    }
+    .textField {
+      width: 80%;
+      margin: 0.6875rem 3.125rem;
+    }
+    .submit-btn {
+      margin: 1.125rem 3.125rem;
+      width: 80%;
+    }
+  }
+}

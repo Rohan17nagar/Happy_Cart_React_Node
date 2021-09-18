@@ -24,11 +24,32 @@ router.post("/PostUserDetails", (req, res) => {
   user
     .save()
     .then(() => {
-      res.status(201).send(user);
+      res.status(200).send(user);
     })
     .catch((err) => {
       res.status(500).send(err);
     });
+});
+
+router.post("/LoginUser", async (req, res) => {
+  const { username, password } = req.body;
+  let user = await User.findOne({
+    username: username,
+    password: password,
+  }).exec();
+
+  if (user) {
+    const userData = {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      username: user.username,
+      mobile: user.mobile,
+    };
+    console.log("userData", userData);
+    res.status(200).send(userData);
+  } else {
+    res.status(404).send({ error: "Incorrect username / password!" });
+  }
 });
 
 module.exports = router;

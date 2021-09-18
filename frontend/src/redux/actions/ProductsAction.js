@@ -1,10 +1,10 @@
+import { getApiCall, postApiCall } from "../../axios/apiCall";
+import * as ActionType from "../actionType/actionTypes";
 import {
   GET_PRODUCTS_DETAILS_API,
   POST_USERS_DETAILS_API,
+  POST_USERS_LOGIN_API,
 } from "../../api/ApiEndpoints";
-import { getApiCall, postApiCall } from "../../axios/apiCall";
-import axios from "axios";
-import * as ActionType from "../actionType/actionTypes";
 
 // GET PRODUCT'S DETAILS API CALL --
 export const fnGetProductsDetails = () => {
@@ -28,15 +28,6 @@ export const fnGetProductsDetails = () => {
 
 //POST USER'S DATA API CALL --
 export const fnPostUsersDetails = (postUsersDetails) => {
-  // let data = {
-  //   firstName: "Rohan",
-  //   lastName: "Nagar",
-  //   username: "rohan@gmail.com",
-  //   password: "123456789",
-  //   confirmPassword: "123456789",
-  //   mobile: "123456789",
-  // };
-
   return (dispatch) => {
     postApiCall(POST_USERS_DETAILS_API, postUsersDetails)
       .then((res) => {
@@ -48,6 +39,24 @@ export const fnPostUsersDetails = (postUsersDetails) => {
       .catch((err) => {
         dispatch({
           type: ActionType.POST_USERS_DETAILS_FAILURE,
+          payload: {},
+        });
+      });
+  };
+};
+
+export const fnPostUsersLogin = (userCredentials) => {
+  return (dispatch) => {
+    postApiCall(POST_USERS_LOGIN_API, userCredentials)
+      .then((res) => {
+        dispatch({
+          type: ActionType.POST_USERS_LOGIN_SUCCESS,
+          payload: res.data,
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: ActionType.POST_USERS_LOGIN_FAILURE,
           payload: {},
         });
       });
