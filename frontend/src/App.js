@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Header } from "./common/Header";
+import { Header } from "./common/Header/Header";
 import Home from "./common/Home";
 import { Products } from "./common/Products";
 import AboutUs from "./common/AboutUs";

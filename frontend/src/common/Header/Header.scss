@@ -1,0 +1,32 @@
+// #490B3D #BD1E51 #F1B814
+
+.header-container {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  background-color: #bd1e51;
+  box-shadow: 0.3125rem 0.3125rem 0.3125rem rgba(68, 68, 68, 0.6);
+  .header-logo {
+    justify-content: center;
+    color: #f1b814;
+    margin: 1.4375rem 1.875rem;
+    padding: 0 2.3125rem;
+    border: 1px solid #ffc411;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 400;
+    &:hover {
+      cursor: pointer;
+      font-weight: 400;
+    }
+  }
+  .header-link {
+    margin: 1.4375rem 1.875rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+  }
+  .header-link-align {
+    float: right;
+  }
+}
