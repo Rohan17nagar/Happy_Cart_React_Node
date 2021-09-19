@@ -1,12 +1,17 @@
-import { Button, Grid, TextField } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
+import { Button, Grid, TextField } from "@material-ui/core";
 import { connect } from "react-redux";
 import { fnPostUsersLogin } from "../../redux/actions/ProductsAction";
+import { useHistory } from "react-router";
+import Loader from "../../common/Loader/Loader";
 import "./UserLogin.scss";
 
 const UserLogin = (props) => {
   const [loginDetails, setLoginDetails] = useState({});
   const [isLoginDisabled, setIsLoginDisabled] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const history = useHistory();
 
   useEffect(() => {
     setLoginDetails({
@@ -31,10 +36,13 @@ const UserLogin = (props) => {
     });
   };
 
-  const handleLoginClick = (loginCredentials) => {
-    props.fnPostUsersLogin(loginCredentials);
+  const handleLoginClick = (loginDetails) => {
+    setIsLoading(true);
+    props.fnPostUsersLogin(loginDetails, history);
   };
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <Grid className="login-container">
       <Grid className="login-grid">
         <h3 className="login-heading">ENTER LOGIN DETAILS</h3>
@@ -75,16 +83,13 @@ const UserLogin = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return {
-    productsDetails: state.ProductsReducer.productsDetails,
-    usersDetails: state.ProductsReducer.usersDetails,
-  };
+  return {};
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fnPostUsersLogin: (loginCredentials) =>
-      dispatch(fnPostUsersLogin(loginCredentials)),
+    fnPostUsersLogin: (loginCredentials, redirectToHome) =>
+      dispatch(fnPostUsersLogin(loginCredentials, redirectToHome)),
   };
 };
 

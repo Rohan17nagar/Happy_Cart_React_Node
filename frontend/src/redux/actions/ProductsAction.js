@@ -45,7 +45,7 @@ export const fnPostUsersDetails = (postUsersDetails) => {
   };
 };
 
-export const fnPostUsersLogin = (userCredentials) => {
+export const fnPostUsersLogin = (userCredentials, history) => {
   return (dispatch) => {
     postApiCall(POST_USERS_LOGIN_API, userCredentials)
       .then((res) => {
@@ -53,6 +53,9 @@ export const fnPostUsersLogin = (userCredentials) => {
           type: ActionType.POST_USERS_LOGIN_SUCCESS,
           payload: res.data,
         });
+
+        sessionStorage.setItem("userData", JSON.stringify(res.data));
+        history.push("/");
       })
       .catch((err) => {
         dispatch({

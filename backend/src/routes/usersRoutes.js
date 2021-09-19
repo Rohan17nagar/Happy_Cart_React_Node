@@ -44,6 +44,7 @@ router.post("/LoginUser", async (req, res) => {
       lastName: user.lastName,
       username: user.username,
       mobile: user.mobile,
+      token: Math.random().toString(36).substr(2, 10).toUpperCase(),
     };
     console.log("userData", userData);
     res.status(200).send(userData);

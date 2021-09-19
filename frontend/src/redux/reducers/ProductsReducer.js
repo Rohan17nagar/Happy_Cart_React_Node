@@ -27,6 +27,17 @@ const ProductsReducer = (state = INITIAL_STATE, action) => {
         ...state,
         usersDetails: action.payload,
       };
+    case ActionType.POST_USERS_LOGIN_SUCCESS:
+      return {
+        ...state,
+        loggedInUserData: action.payload,
+      };
+
+    case ActionType.POST_USERS_LOGIN_FAILURE:
+      return {
+        ...state,
+        loggedInUserData: action.payload,
+      };
 
     default:
       return state;

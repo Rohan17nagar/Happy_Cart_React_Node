@@ -6,11 +6,22 @@ import {
   fnPostUsersDetails,
 } from "../redux/actions/ProductsAction";
 
-const Home = () => {
+const Home = (props) => {
+  const userData = sessionStorage.getItem("userData");
+
+  const handleLogoutClick = () => {
+    sessionStorage.clear("userData");
+  };
   return (
     <div>
       <Link to="/user-registration">Register</Link>
-      <Link to="/user-login">Login</Link>
+      {userData ? (
+        <Link onClick={() => handleLogoutClick()} to="/">
+          Logout
+        </Link>
+      ) : (
+        <Link to="/user-login">Login</Link>
+      )}
     </div>
   );
 };
