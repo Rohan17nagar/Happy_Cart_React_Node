@@ -2,16 +2,14 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Header } from "./common/Header/Header";
 import Home from "./common/Home";
-import { Products } from "./common/Products";
+import Products from "./common/Products";
 import AboutUs from "./common/AboutUs";
 import UserRegistration from "./components/userRegistration/UserRegistration";
 import UserLogin from "./components/userLogin/UserLogin";
 
 function App() {
   return (
-    
     <div className="App">
-    console.log("cosnole")
       <Router>
         <Header />
         <Switch>
